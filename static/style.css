@@ -1,0 +1,2273 @@
+/*==================================================
+            HEALTHGUARD AI DASHBOARD
+==================================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+
+    --sidebar:#0F172A;
+    --sidebar-light:#1E293B;
+
+    --primary:#14B8A6;
+    --primary-dark:#0F766E;
+
+    --danger:#EF4444;
+
+    --success:#22C55E;
+
+    --warning:#F59E0B;
+
+    --background:#F4F8FC;
+
+    --card:#FFFFFF;
+
+    --text:#1E293B;
+
+    --muted:#64748B;
+
+    --border:#E2E8F0;
+
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:var(--background);
+
+    color:var(--text);
+
+}
+
+/*==================================================
+DASHBOARD LAYOUT
+==================================================*/
+
+.dashboard{
+
+    display:grid;
+
+    grid-template-columns:260px 1fr;
+
+    min-height:100vh;
+
+}
+
+/*==================================================
+SIDEBAR
+==================================================*/
+
+.sidebar{
+
+    background:var(--sidebar);
+
+    color:white;
+
+    padding:20px 25px 35px;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+/*/*==================================================
+LOGO
+==================================================*/
+
+.logo{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding-top:20px;
+
+    margin-bottom:55px;
+
+}
+
+.logo img{
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:18px;
+
+    object-fit:contain;
+
+    background:white;
+
+    padding:6px;
+
+}
+
+
+.logo h2{
+
+    font-size:20px;
+
+    font-weight:700;
+
+    line-height:1.2;
+
+    white-space:nowrap;
+
+    margin-top:10px;
+
+}
+
+.logo p{
+
+    font-size:14px;
+
+    color:#CBD5E1;
+
+    text-align:center;
+
+}
+
+/*==================================================
+MENU
+==================================================*/
+
+.sidebar nav{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+.sidebar nav a{
+
+    text-decoration:none;
+
+    color:#CBD5E1;
+
+    padding:15px 18px;
+
+    border-radius:14px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    transition:.3s;
+    
+    font-weight: 500;
+
+    font-size:16px;
+
+}
+
+.sidebar nav a:hover{
+
+    background:var(--primary);
+
+    color:white;
+    transform: translate(6px);
+
+}
+
+.sidebar nav a.active{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+.sidebar nav i{
+
+    font-size:20px;
+
+}
+
+/*==================================================
+PROFILE
+==================================================*/
+
+.developer{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-top:auto;
+
+    padding-top:25px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+.developer img{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+.developer h5{
+
+    margin:0;
+
+    color:white;
+
+    font-size:17px;
+
+}
+
+.developer small{
+
+    color:#CBD5E1;
+
+}
+
+/*==================================================
+MAIN
+==================================================*/
+
+.main{
+
+    padding:35px;
+
+}
+
+/*==================================================
+TOPBAR
+==================================================*/
+
+.topbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
+
+}
+
+.topbar h4{
+
+    font-size:28px;
+
+    font-weight:700;
+
+    margin-bottom:5px;
+
+}
+
+.topbar p{
+
+    color:var(--muted);
+
+}
+
+.top-actions{
+
+    display:flex;
+
+    gap:18px;
+
+}
+
+.top-actions i{
+
+    width:48px;
+
+    height:48px;
+
+    background:white;
+
+    border-radius:14px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    cursor:pointer;
+
+    transition:.30s;
+
+}
+
+.top-actions i:hover{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+/*==================================================
+HERO
+==================================================*/
+
+.hero{
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:45px;
+
+    display:grid;
+
+    grid-template-columns:1fr 380px;
+
+    align-items:center;
+
+    gap:30px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
+
+    margin-bottom:35px;
+
+}
+
+.badge{
+
+    background:#D1FAE5;
+
+    color:#065F46;
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    display:inline-block;
+
+    margin-bottom:18px;
+
+}
+
+.hero h1{
+
+    font-size:48px;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+    line-height:1.2;
+
+}
+
+.hero p{
+
+    font-size:17px;
+
+    color:var(--muted);
+
+    line-height:1.8;
+
+    max-width:550px;
+
+}
+
+.hero-btn{
+
+    margin-top:30px;
+
+    background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+
+    color:white;
+
+    border:none;
+
+    padding:16px 32px;
+
+    border-radius:16px;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    transition:.30s;
+
+    cursor:pointer;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+
+.hero-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 15px 30px rgba(20,184,166,.30);
+
+}
+
+.hero-image{
+
+    text-align:center;
+
+}
+
+.hero-image img{
+
+    width:100%;
+
+    max-width:260px;
+
+}
+/*==================================================
+            MAIN DASHBOARD GRID
+==================================================*/
+
+.dashboard-grid{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:30px;
+
+    align-items:start;
+
+}
+
+/*==================================================
+            LEFT COLUMN
+==================================================*/
+
+.left-column{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+}
+
+/*==================================================
+            SYMPTOM CARD
+==================================================*/
+
+.symptom-card{
+
+    background:var(--card);
+
+    border-radius:24px;
+
+    padding:30px;
+
+    box-shadow:0 12px 35px rgba(15,23,42,.06);
+
+}
+
+.card-title{
+
+    margin-bottom:25px;
+
+}
+
+.card-title h3{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:24px;
+
+    font-weight:700;
+
+}
+
+.card-title p{
+
+    margin-top:8px;
+
+    color:var(--muted);
+
+}
+
+/*==================================================
+            SEARCH BOX
+==================================================*/
+
+.search-box{
+
+    margin-bottom:25px;
+
+    position:relative;
+
+}
+
+.search-box input{
+
+    width:100%;
+
+    padding:14px 20px 14px 50px;
+
+    border:1px solid var(--border);
+
+    border-radius:14px;
+
+    outline:none;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+.search-box input:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 0 4px rgba(20,184,166,.10);
+
+}
+
+.search-box i{
+
+    position:absolute;
+
+    left:18px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:var(--muted);
+
+}
+
+/*==================================================
+            SYMPTOM ITEM
+==================================================*/
+
+.symptom-item{
+
+    background:#ffffff;
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    padding:16px 18px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    transition:.25s;
+
+}
+
+.symptom-item:hover{
+
+    border-color:var(--primary);
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 20px rgba(20,184,166,.12);
+
+}
+
+.symptom-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.symptom-icon{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:14px;
+
+    background:#ECFDF5;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.symptom-icon i{
+
+    color:var(--primary);
+
+    font-size:22px;
+
+}
+
+.symptom-left h6{
+
+    margin:0;
+
+    font-weight:600;
+
+}
+
+.symptom-left small{
+
+    color:var(--muted);
+
+}
+
+/*==================================================
+            CUSTOM SWITCH
+==================================================*/
+
+.switch{
+
+    position:relative;
+
+    display:inline-block;
+
+    width:52px;
+
+    height:28px;
+
+}
+
+.switch input{
+
+    opacity:0;
+
+    width:0;
+
+    height:0;
+
+}
+
+.slider{
+
+    position:absolute;
+
+    cursor:pointer;
+
+    top:0;
+
+    left:0;
+
+    right:0;
+
+    bottom:0;
+
+    background:#CBD5E1;
+
+    transition:.3s;
+
+    border-radius:50px;
+
+}
+
+.slider:before{
+
+    position:absolute;
+
+    content:"";
+
+    width:22px;
+
+    height:22px;
+
+    left:3px;
+
+    bottom:3px;
+
+    background:white;
+
+    transition:.3s;
+
+    border-radius:50%;
+
+}
+
+.switch input:checked + .slider{
+
+    background:var(--primary);
+
+}
+
+.switch input:checked + .slider:before{
+
+    transform:translateX(24px);
+
+}
+
+/*==================================================
+            PREDICT BUTTON
+==================================================*/
+
+.predict-container{
+
+    margin-top:35px;
+
+    text-align:center;
+
+}
+
+.predict-btn{
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-dark)
+    );
+
+    color:#fff;
+
+    border:none;
+
+    border-radius:18px;
+
+    padding:18px 40px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+    box-shadow:0 15px 35px rgba(20,184,166,.25);
+
+}
+
+.predict-btn:hover{
+
+    transform:translateY(-3px);
+
+    color:#fff;
+
+    box-shadow:0 20px 40px rgba(20,184,166,.35);
+
+}
+
+.predict-btn i{
+
+    margin-right:10px;
+
+}
+
+/*==================================================
+            FEATURE SECTION
+==================================================*/
+
+.feature-section{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+
+}
+
+.feature-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:22px;
+
+    display:flex;
+
+    gap:18px;
+
+    align-items:flex-start;
+
+    box-shadow:0 10px 25px rgba(15,23,42,.05);
+
+    transition:.3s;
+
+}
+
+.feature-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.feature-icon{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:16px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:white;
+
+    font-size:24px;
+
+}
+
+.feature-icon.green{
+
+    background:#22C55E;
+
+}
+
+.feature-icon.blue{
+
+    background:#3B82F6;
+
+}
+
+.feature-icon.red{
+
+    background:#EF4444;
+
+}
+
+.feature-card h5{
+
+    margin-bottom:8px;
+
+    font-weight:700;
+
+}
+
+.feature-card p{
+
+    color:var(--muted);
+
+    font-size:14px;
+
+    line-height:1.6;
+
+}
+part 3
+ /*==================================================
+                RIGHT COLUMN
+==================================================*/
+
+.right-column{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+    position:sticky;
+
+    top:30px;
+
+}
+
+/*==================================================
+            HEALTH ASSESSMENT CARD
+==================================================*/
+
+.assessment-card{
+
+    background:var(--card);
+
+    border-radius:24px;
+
+    padding:30px;
+
+    box-shadow:0 15px 40px rgba(15,23,42,.08);
+
+}
+
+.assessment-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    margin-bottom:25px;
+
+}
+
+.status-icon{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:20px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    font-size:32px;
+
+}
+
+.status-low{
+
+    background:#22C55E;
+
+}
+
+.status-medium{
+
+    background:#F59E0B;
+
+}
+
+.status-high{
+
+    background:#EF4444;
+
+}
+
+.assessment-header h2{
+
+    font-size:28px;
+
+    font-weight:700;
+
+    margin-bottom:4px;
+
+}
+
+.assessment-header p{
+
+    color:var(--muted);
+
+}
+
+/*==================================================
+                RISK BANNER
+==================================================*/
+
+.risk-card{
+
+    border-radius:18px;
+
+    text-align:center;
+
+    padding:25px;
+
+    margin-bottom:25px;
+
+}
+
+.risk-card h1{
+
+    margin:0;
+
+    font-size:38px;
+
+    font-weight:700;
+
+}
+
+.risk-card p{
+
+    margin-top:8px;
+
+    font-size:15px;
+
+}
+
+.risk-low{
+
+    background:#DCFCE7;
+
+    color:#166534;
+
+}
+
+.risk-medium{
+
+    background:#FEF3C7;
+
+    color:#92400E;
+
+}
+
+.risk-high{
+
+    background:#FEE2E2;
+
+    color:#991B1B;
+
+}
+
+/*==================================================
+            RECOMMENDATION
+==================================================*/
+
+.recommendation-card{
+
+    background:#F8FAFC;
+
+    border-radius:18px;
+
+    padding:22px;
+
+    margin-bottom:25px;
+
+}
+
+.recommendation-card h4{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:12px;
+
+    color:var(--primary-dark);
+
+}
+
+.recommendation-card p{
+
+    color:var(--muted);
+
+    line-height:1.8;
+
+}
+
+/*==================================================
+            PREDICTION SUMMARY
+==================================================*/
+
+.summary-card{
+
+    margin-top:25px;
+
+}
+
+.summary-card h4{
+
+    margin-bottom:18px;
+
+    font-weight:700;
+
+}
+
+.summary-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:14px 0;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.summary-row:last-child{
+
+    border:none;
+
+}
+
+.summary-row span{
+
+    color:var(--muted);
+
+}
+
+.summary-row strong{
+
+    color:var(--text);
+
+}
+
+/*==================================================
+            WAITING CARD
+==================================================*/
+
+.waiting-card{
+
+    text-align:center;
+
+    padding:35px 20px;
+
+}
+
+.waiting-icon{
+
+    width:90px;
+
+    height:90px;
+
+    background:#ECFDF5;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin:0 auto 20px;
+
+}
+
+.waiting-icon i{
+
+    color:var(--primary);
+
+    font-size:42px;
+
+}
+
+.waiting-card h3{
+
+    margin-bottom:15px;
+
+    font-weight:700;
+
+}
+
+.waiting-card p{
+
+    color:var(--muted);
+
+    line-height:1.8;
+
+}
+
+/*==================================================
+            SYSTEM STATUS
+==================================================*/
+
+.system-card{
+
+    background:var(--card);
+
+    border-radius:24px;
+
+    padding:28px;
+
+    box-shadow:0 12px 35px rgba(15,23,42,.08);
+
+}
+
+.system-card h4{
+
+    margin-bottom:20px;
+
+    font-weight:700;
+
+}
+
+.system-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:12px 0;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.system-item:last-child{
+
+    border-bottom:none;
+
+}
+
+.system-item i{
+
+    font-size:18px;
+
+}
+/*==================================================
+                FOOTER
+==================================================*/
+
+.footer{
+
+    margin-top:30px;
+
+    background:var(--card);
+
+    border-radius:20px;
+
+    padding:18px 28px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:0 10px 30px rgba(15,23,42,.06);
+
+}
+
+.footer strong{
+
+    color:var(--primary-dark);
+
+}
+
+.footer span{
+
+    color:var(--muted);
+
+    margin-left:10px;
+
+}
+
+.about-btn{
+
+    background:var(--primary);
+
+    color:white;
+
+    border:none;
+
+    padding:12px 20px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.about-btn:hover{
+
+    background:var(--primary-dark);
+
+    color:white;
+
+    transform:translateY(-2px);
+
+}
+
+/*==================================================
+                MODAL
+==================================================*/
+
+.modal-content{
+
+    border:none;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+}
+
+.modal-header{
+
+    background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+
+    color:white;
+
+}
+
+.modal-header .btn-close{
+
+    filter:invert(1);
+
+}
+
+.modal-body{
+
+    padding:35px;
+
+}
+
+.modal-body h4{
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+}
+
+.modal-body h5{
+
+    color:var(--primary-dark);
+
+    margin-top:25px;
+
+    margin-bottom:15px;
+
+}
+
+.modal-body p{
+
+    color:var(--muted);
+
+    line-height:1.8;
+
+}
+
+/*==================================================
+                HERO ANIMATION
+==================================================*/
+
+.hero{
+
+    animation:fadeUp .8s ease;
+
+}
+
+.hero-image{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.hero-image img{
+
+    width:280px;
+
+    max-width:100%;
+
+    height:auto;
+
+    object-fit:contain;
+
+    display:block;
+
+    animation:none;
+
+    transform:none;
+
+    filter:none;
+
+    margin:0;
+
+}
+/*==================================================
+                CARD HOVER
+==================================================*/
+
+.hero,
+.symptom-card,
+.assessment-card,
+.system-card,
+.feature-card{
+
+    transition:.3s;
+
+}
+
+.hero:hover,
+.symptom-card:hover,
+.assessment-card:hover,
+.system-card:hover{
+
+    box-shadow:0 20px 45px rgba(15,23,42,.10);
+
+}
+
+/*==================================================
+                BUTTON LOADING
+==================================================*/
+
+.spinner-border{
+
+    width:18px;
+
+    height:18px;
+
+}
+
+/*==================================================
+                SCROLLBAR
+==================================================*/
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#E2E8F0;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--primary);
+
+    border-radius:20px;
+
+}
+
+/*==================================================
+                RESPONSIVE
+==================================================*/
+
+@media(max-width:1200px){
+
+.dashboard-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.right-column{
+
+    position:relative;
+
+    top:0;
+
+}
+
+.hero{
+
+    grid-template-columns:1fr;
+
+    text-align:center;
+
+}
+
+.hero p{
+
+    max-width:100%;
+
+}
+
+.hero-image{
+
+    margin-top:20px;
+
+}
+
+}
+
+@media(max-width:992px){
+
+.dashboard{
+
+    grid-template-columns:1fr;
+
+}
+
+.sidebar{
+
+    display:none;
+
+}
+
+.main{
+
+    padding:20px;
+
+}
+
+.feature-section{
+
+    grid-template-columns:1fr;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.hero{
+
+    padding:30px;
+
+}
+
+.hero h1{
+
+    font-size:34px;
+
+}
+
+.topbar{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:20px;
+
+}
+
+.footer{
+
+    flex-direction:column;
+
+    gap:15px;
+
+    text-align:center;
+
+}
+
+.predict-btn{
+
+    width:100%;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.symptom-item{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:15px;
+
+}
+
+.hero-image img{
+
+    max-width:220px;
+
+}
+
+}
+
+/*==================================================
+                FINAL POLISH
+==================================================*/
+
+button{
+
+    cursor:pointer;
+
+}
+
+button:focus{
+
+    box-shadow:none;
+
+}
+
+img{
+
+    display:block;
+
+    max-width:100%;
+
+}
+
+a{
+
+    text-decoration:none;
+
+}
+
+h1,h2,h3,h4,h5,h6{
+
+    letter-spacing:.3px;
+
+}
+
+p{
+
+    margin-bottom:0;
+
+}
+/*==================================================
+        CORE TECHNOLOGIES
+==================================================*/
+
+.tech-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:18px;
+
+    Paste it at the very bottom of style.css.;
+
+}
+
+.tech-card{
+
+    background:#F8FAFC;
+
+    border-radius:18px;
+
+    padding:22px;
+
+    text-align:center;
+
+    transition:.3s;
+
+    border:1px solid #E2E8F0;
+
+}
+
+.tech-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.08);
+
+}
+
+.tech-icon{
+
+    width:65px;
+
+    height:65px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin:auto;
+
+    margin-bottom:15px;
+
+    font-size:30px;
+
+    color:white;
+
+}
+
+.python{
+
+    background:#3776AB;
+
+}
+
+.ai{
+
+    background:#16A34A;
+
+}
+
+.flask{
+
+    background:#0891B2;
+
+}
+
+.health{
+
+    background:#EF4444;
+
+}
+
+.tech-card h6{
+
+    margin-bottom:8px;
+
+    font-size:17px;
+
+    font-weight:600;
+
+}
+
+.tech-card p{
+
+    font-size:13px;
+
+    color:#64748B;
+
+    line-height:1.5;
+
+}
+/*==================================================
+        SEARCHABLE SYMPTOM SELECTOR
+==================================================*/
+
+.search-container{
+
+    position:relative;
+
+    margin-bottom:20px;
+
+}
+
+.search-container i{
+
+    position:absolute;
+
+    left:18px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#94A3B8;
+
+    font-size:18px;
+
+}
+
+.search-container input{
+
+    width:100%;
+
+    padding:16px 20px 16px 50px;
+
+    border:1px solid #E2E8F0;
+
+    border-radius:16px;
+
+    background:white;
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+.search-container input:focus{
+
+    outline:none;
+
+    border-color:#14B8A6;
+
+    box-shadow:0 0 0 4px rgba(20,184,166,.12);
+
+}
+
+/*==========================
+Suggestions
+==========================*/
+
+.suggestions{
+
+    max-height:260px;
+
+    overflow-y:auto;
+
+    background:white;
+
+    border-radius:16px;
+
+    border:1px solid #E2E8F0;
+
+    margin-top:10px;
+
+    display:none;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.suggestion{
+
+    padding:15px 18px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    border-bottom:1px solid #F1F5F9;
+
+}
+
+.suggestion:last-child{
+
+    border-bottom:none;
+
+}
+
+.suggestion:hover{
+
+    background:#ECFDF5;
+
+    color:#0F766E;
+
+}
+
+/*==========================
+Selected Symptoms
+==========================*/
+
+.selected-title{
+
+    margin-top:30px;
+
+    margin-bottom:15px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+}
+
+.selected-list{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    min-height:55px;
+
+}
+
+/*==========================
+Selected Chip
+==========================*/
+
+.selected-chip{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:10px 16px;
+
+    background:#14B8A6;
+
+    color:white;
+
+    border-radius:50px;
+
+    animation:fadeIn .25s ease;
+
+}
+
+.selected-chip i{
+
+    cursor:pointer;
+
+    font-size:14px;
+
+}
+
+.selected-chip i:hover{
+
+    color:#FEE2E2;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(6px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* =====================================================
+   AI HEALTH ASSESSMENT POLISH
+===================================================== */
+
+.assessment-card{
+
+    background:#fff;
+
+    border-radius:24px;
+
+    padding:28px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.06);
+
+}
+
+.assessment-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    margin-bottom:25px;
+
+}
+
+.assessment-header h2{
+
+    margin:0;
+
+    font-size:36px;
+
+    font-weight:700;
+
+    color:#1E293B;
+
+}
+
+.assessment-header p{
+
+    margin-top:4px;
+
+    color:#64748B;
+
+}
+
+.assessment-icon{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:32px;
+
+    color:white;
+
+}
+
+.status-low{
+
+    background:#22C55E;
+
+}
+
+.status-medium{
+
+    background:#F59E0B;
+
+}
+
+.status-high{
+
+    background:#EF4444;
+
+}
+/* =====================================================
+   CONFIDENCE PROGRESS BAR
+===================================================== */
+
+.confidence-wrapper{
+
+    margin-top:12px;
+
+}
+
+.confidence-bar{
+
+    width:100%;
+
+    height:12px;
+
+    background:#E2E8F0;
+
+    border-radius:50px;
+
+    overflow:hidden;
+
+    margin-bottom:10px;
+
+}
+
+.confidence-fill{
+
+    height:100%;
+
+    background:linear-gradient(90deg,#14B8A6,#22C55E);
+
+    border-radius:50px;
+
+    transition:width .5s ease;
+
+}
+
+.confidence-wrapper strong{
+
+    font-size:22px;
+
+    color:#0F172A;
+
+}
+/* ==========================================
+   Assessment Boxes
+========================================== */
+
+.assessment-box{
+
+    background:#F8FAFC;
+
+    border:1px solid #E2E8F0;
+
+    border-radius:16px;
+
+    padding:16px;
+
+    margin-bottom:16px;
+
+}
+
+.assessment-label{
+
+    display:block;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    color:#64748B;
+
+    text-transform:uppercase;
+
+    letter-spacing:.5px;
+
+    margin-bottom:8px;
+
+}
+
+.assessment-box h3{
+
+    margin:0;
+
+    font-size:28px;
+
+    font-weight:700;
+
+    color:#0F172A;
+
+}
+
+.assessment-box p{
+
+    margin:0;
+
+    color:#475569;
+
+    line-height:1.7;
+
+}
+.tech-stack{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-top:20px;
+
+}
+
+.tech-stack span{
+
+    background:#EEF2FF;
+
+    color:#2563EB;
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    font-weight:600;
+
+    font-size:14px;
+
+}
+/* ==========================
+   ABOUT MODAL FEATURES
+========================== */
+
+.modal-feature-card{
+
+    background:#fff;
+
+    border:1px solid #E5E7EB;
+
+    border-radius:16px;
+
+    padding:20px;
+
+    text-align:center;
+
+    height:100%;
+
+    transition:.3s;
+
+}
+
+.modal-feature-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.modal-feature-card i{
+
+    font-size:36px;
+
+    margin-bottom:15px;
+
+    display:block;
+
+}
+
+.modal-feature-card h6{
+
+    font-size:18px;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+    color:#1F2937;
+
+}
+
+.modal-feature-card p{
+
+    font-size:14px;
+
+    color:#6B7280;
+
+    line-height:1.6;
+
+    margin:0;
+
+}
+
+.feature-green{
+
+    color:#22C55E;
+
+}
+
+.feature-blue{
+
+    color:#3B82F6;
+
+}
+
+.feature-red{
+
+    color:#EF4444;
+
+}
+/* ==========================================
+   ABOUT MODAL FOOTER
+========================================== */
+
+.modal-footer{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    align-items:center;
+
+    padding:18px 24px;
+
+    border-top:1px solid #E5E7EB;
+
+    background:#fff;
+
+    border-bottom-left-radius:24px;
+
+    border-bottom-right-radius:24px;
+
+}
+
+.modal-footer .btn{
+
+    min-width:110px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+    padding:10px 20px;
+
+}
